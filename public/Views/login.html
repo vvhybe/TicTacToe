@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imgs/logo.png" type="image/png">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/form.css">
+    <script defer src="../app/login.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <ul class="glassmorphism" error-display></ul>
+    
+    <form class="glassmorphism" login action="../../server/Controllers/login.php" method="POST">
+        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <button type="submit" id="submit">Login</button>
+        <p>Don't have account regester here. <a href="regester.html" target="_self" rel="noopener noreferrer">Regester</a></p>
+    </form>
+</body>
+</html>

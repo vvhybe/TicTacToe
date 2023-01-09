@@ -1,0 +1,70 @@
+CREATE DATABASE tictactoe;
+
+USE tictactoe;
+
+DROP TABLE IF EXISTS players;
+CREATE TABLE players (
+  player_id varchar(7) NOT NULL,
+  username varchar(8) NOT NULL,
+  firstName varchar(35) NOT NULL,
+  lastName varchar(35) NOT NULL,
+  password varchar(64) NOT NULL
+);
+
+DROP TABLE IF EXISTS statistics;
+CREATE TABLE statistics (
+  game_id int(11) AUTO_INCREMENT,
+  player_id varchar(7) NOT NULL,
+  x_score int(11) DEFAULT 0,
+  o_score int(11) DEFAULT 0,
+  game_date date DEFAULT CURRENT_DATE,
+  game_time time DEFAULT CURRENT_TIME,
+  CONSTRAINT SPK PRIMARY KEY(game_id)
+);
+
+DELIMITER $$
+CREATE PROCEDURE get_player(u varchar(8), p varchar(64))
+BEGIN
+	SELECT * FROM players WHERE username = u AND password = p;
+END $$
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE add_player(IN id varchar(7), IN u varchar(8), IN f varchar(32), IN l varchar(32), IN p varchar(64))
+BEGIN
+	INSERT INTO players(player_id, username, firstName, lastName, password) VALUES (id, u, f, l, p);
+END //
+DELIMITER ;
+
+DELIMITER @@
+CREATE FUNCTION is_id_reserved(id varchar(7)) RETURNS INTEGER DETERMINISTIC 
+BEGIN
+	DECLARE is_reserved INTEGER DEFAULT 0; 
+	DECLARE searched_id varchar(7); 
+	SELECT player_id INTO searched_id FROM players WHERE player_id = id;
+	IF searched_id = id THEN
+		SET is_reserved = 1;
+	END IF; 
+	RETURN is_reserved;
+END@@
+DELIMITER ;
+
+DELIMITER @@
+CREATE FUNCTION is_username_reserved(u varchar(8)) RETURNS INTEGER DETERMINISTIC
+BEGIN
+	DECLARE is_reserved INTEGER DEFAULT 0; 
+	DECLARE searched_username varchar(7); 
+	SELECT username INTO searched_username FROM players WHERE username = u;
+	IF searched_username = u THEN
+		SET is_reserved = 1;
+	END IF; 
+	RETURN is_reserved;
+END@@
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE insert_player_score(IN id varchar(7), IN x INT, IN o INT)
+BEGIN
+    INSERT INTO statistics(player_id, x_score, o_score) VALUES(id, x, o);
+END $$
+DELIMITER ;

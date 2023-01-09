@@ -1,0 +1,93 @@
+form{
+    width: 30vw;
+    padding-block: 2rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form button{
+    border: none;
+    padding: .8rem;
+    border-radius: 20px;
+}
+
+form input{
+    width: 65%;
+    transition: all .2s ease-in-out;
+}
+
+/* visual impact -------------------------------*/
+form input.unvalide{
+    border-color: var(--color-dark-red-default);
+    color: var(--color-dark-red-default);
+    background-color: var(--color-dark-red-opacity);
+}
+
+form input.valide{
+    border-color: var(--color-dark-teal-default);
+    color: var(--color-dark-teal-default);
+    background-color: var(--color-dark-teal-opacity);
+}
+/* --------------------------------------- */
+
+form button{
+    padding: 10px 30px;
+    font-size: 1rem;
+    border: 2px solid var(--color-dark-teal-default);
+    background-color: var(--color-dark-teal-opacity);
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+form button:disabled{
+    background-color: gray;
+    color: black;
+}
+
+form button:not(:disabled):is(:hover, :active){
+    background-color: var(--color-dark-teal-default);
+    box-shadow: 0 0 6px var(--color-dark-teal-default);
+}
+
+form button:not(:disabled):active{
+    transform: scale(.8);
+}
+
+form p{
+    margin: .2rem;
+    font-size: 1rem;
+    color: #b9b8b8;
+    text-decoration: underline;
+}
+
+form p a{
+    color: var(--color-dark-teal-default);
+}
+
+ul{
+    padding: 1rem 2rem;
+    border-radius: 1em;
+    border: 1.8px dashed var(--color-dark-red-default) !important;
+    background-color: var(--color-dark-red-opacity) !important;
+    transform: scale(0) translateY(100px);
+    opacity: 0;
+}
+
+ul li{
+    color: var(--color-dark-red-default) !important;
+}
+
+.errordisplay{
+    animation: errorPopUp .4s cubic-bezier(0.23, 1, 0.320, 1) .1s forwards;
+}
+
+@keyframes errorPopUp {
+    100%{
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}

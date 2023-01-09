@@ -1,0 +1,51 @@
+.player{
+    position: fixed;
+    top: 3%;
+    left: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-direction: column;
+    /* background-color: burlywood; */
+}
+
+.player div .username{
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+.player div .playerid{
+    font-size: 1rem;
+    color: gray;
+}
+
+.player div a{
+    transition: all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.player .logout{
+    position: absolute;
+    right: -70%;
+}
+
+a{
+    outline: none;
+    padding: .5rem 1rem;
+    margin-inline: .2rem;
+    font-size: .9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    border-radius: 2em;
+    border: 2px solid var(--color-dark-teal-default);
+    background-color: var(--color-dark-teal-opacity);
+    cursor: pointer;
+}
+
+.player div a.loginBtn{
+    background-color: var(--color-dark-teal-default);
+}
+
+a:is(:hover, :focus){
+    background-color: var(--color-dark-teal-default);
+    box-shadow: 0 0 6px var(--color-dark-teal-default);
+}

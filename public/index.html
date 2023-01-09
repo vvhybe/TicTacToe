@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fancy Tic-Tac-Toe Web Game">
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/player.css">
+    <script defer src="app/app.js"></script>
+    <script defer src="app/player.js"></script>
+    <script defer src="app/scoredelevery.js"></script>
+    <script defer src="app/logout.js"></script>
+    <script defer src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+    <title>TickTacToe</title>
+</head>
+<body>
+
+    <section credentiels class="player">
+        <div player>
+            <span class="username" username>username</span><span class="playerid" playerid>#0000000</span>
+        </div>
+        
+        <div logout class="logout">
+            <a class="logoutBtn" target="_self" rel="noopener noreferrer">Logout</a>
+        </div>
+
+        <div guest>
+            <a class="loginBtn" href="Views/login.html" target="_self" rel="noopener noreferrer">Login</a>
+            <a class="regesterBtn" href="Views/regester.html" target="_self" rel="noopener noreferrer">Regester</a>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="banner">
+        <h1 class="title">-- <span style="color: #00c7b6;">Tic</span> Tac <span style="color: #d32254;">Toe</span> --</h1>
+        <div class="pvp">
+            <div class="p1">
+                <div circle class="circle"></div>
+                <span id="o-score" class="score">0</span>
+            </div>
+            <span>VS</span>
+            <div class="p2">    
+                <span id="x-score" class="score">0</span>
+                <div ex class="ex">
+                    <div class="stk1"></div>
+                    <div class="stk2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="start">
+        <button class="startBtn activeGame" id="startBtn"><h3>start</h3></button>
+    </div>
+    <section class="board" Tic-Tac-Toe>
+        <div row class="row">
+            <div col class="col"></div>
+            <div col class="col"></div>
+            <div col class="col"></div>
+        </div>
+        <div row class="row">
+            <div col class="col"></div>
+            <div col class="col"></div>
+            <div col class="col"></div>
+        </div>
+        <div row class="row">
+            <div col class="col"></div>
+            <div col class="col"></div>
+            <div col class="col"></div>
+        </div>
+    </section>
+
+    <article class="resultMsg" id="resultMsg">
+        <div icon-winner class="displaySymbol">        
+        </div>
+        <div class="message">
+            <h1 id="resultTitle"></h1>
+        </div>
+        <button class="restartBtn" id="restart">restart</button>
+    </article>
+
+    <template id="O">
+        <div circle class="circle"></div>
+    </template>
+
+    <template id="X">
+        <div ex class="ex">
+            <div class="stk1"></div>
+            <div class="stk2"></div>
+        </div>
+    </template>
+
+</body>
+</html>
